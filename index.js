@@ -1,5 +1,6 @@
 const botconfig = require("./botconfig.json");
-const token = proces.env.tokens;
+const token = "const errors = require("./utils/errors.js")
+const token = "NDg5MTIyODA4NjUyMTAzNjgw.DrNkxA.j0ZhyrMZs7h9ynUyqpDqaWan2Gw";
 const Discord = require("discord.js");
 const errors = require("./utils/errors.js")
 

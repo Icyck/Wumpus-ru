@@ -899,4 +899,4 @@ if(cmd === `${prefix}sinfo`){
 
 });
 
-bot.login(tokens);
+bot.login(token);

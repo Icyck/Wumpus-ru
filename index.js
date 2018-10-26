@@ -45,9 +45,10 @@ fs.readdir("./commands/", (err, files) => {
 
 });*/
 bot.on("ready", () => {
+   console.log("Wumpus online!")
   bot.user.setPresence({
       game: { 
-          name: 'Wumpus',
+          name: 'Wumpus || h',
           type: 'WATCHING'
       },
       status: "dnd"

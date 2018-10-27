@@ -273,8 +273,7 @@ if(cmd === `${prefix}remrole`){
     .addField("`Bot Info` - Работает", `${prefix}botinfo`)
     .addField("`8b` - Работает", `${prefix}8b`)
     .addField("`!say` - Работает", `${prefix}say`)
-    .addField("`Help warn` - Работает", `${prefix}hw`)
-    .addField("`Help report` -Работает", `${prefix}hr`)
+    
     .addField("`Update` - Работает", `${prefix}update`)
     .addField("`Support` - Работает", `${prefix}support`)
     .addField("        ` Автор`: Famas_4sh", `Поддержка - напишите *${prefix}support*`);
@@ -317,14 +316,13 @@ if(cmd === `${prefix}remrole`){
     .setColor('RANDOM')
     .addField("Prefix - Работает", "prefserver")
     .addField("Mod help - Работает", "mod")
-    .addField("`Report` - Работает", `${prefix}report`)
+
   .addField("`Hello` - Работает", `${prefix}hello`)
     .addField("`Server info` - Работает", `${prefix}serverinfo`)
     .addField("`Bot Info` - Работает", `${prefix}botinfo`)
     .addField("`8b` - Работает", `${prefix}8b`)
     .addField("`!say` - Работает", `${prefix}say`)
-    .addField("`Help warn` - Работает", `${prefix}hw`)
-    .addField("`Help report` -Работает", `${prefix}hr`)
+
     .addField("`Update` - Работает", `${prefix}update`)
     .addField("`Support` - Работает", `${prefix}support`)
     .addField("        ` Автор`: Famas_4sh", `Поддержка - напишите *${prefix}support*`);

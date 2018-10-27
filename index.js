@@ -206,7 +206,7 @@ if(cmd === `${prefix}setrole`){
  
 
    if(args[0] == "help"){
-    message.reply("Usage: !setrole <пользователь> <rпричина>");
+    message.reply("Usage: !setrole <пользователь> <роль>");
     return;
   }
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Простиб но ты не можешь это сделать.");
@@ -230,7 +230,7 @@ if(cmd === `${prefix}setrole`){
 if(cmd === `${prefix}remrole`){
 
    if(args[0] == "help"){
-    message.reply("Usage: !remrole <пользователь> <rпричина>");
+    message.reply("Usage: !remrole <пользователь> <роль>");
     return;
   }
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Ты не можешь это сделать.");
@@ -349,7 +349,7 @@ if(cmd === `${prefix}remrole`){
     if(!rUser) return message.channel.send("Couldn't find user.");
     let reason = args.join(" ").slice(22);
      if(args[0] == "help"){
-    message.reply(`Использование: ${prefix}report <пользователь> <rпричина>`);
+    message.reply(`Использование: ${prefix}report <пользователь> <причина>`);
     return;
   }
 
@@ -458,7 +458,7 @@ if(cmd === `${prefix}hello`){
    
 
      if(args[0] == "help"){
-    message.reply(`Использование: ${prefix}ban <пользователь> <rпричина>`);
+    message.reply(`Использование: ${prefix}ban <пользователь> <причина>`);
     return;
   }
     let reason = args.slice(1).join(' ')

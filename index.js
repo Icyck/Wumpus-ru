@@ -205,6 +205,10 @@ if(cmd === `invite`){
 if(cmd === `${prefix}setrole`){
  
 
+   if(args[0] == "help"){
+    message.reply("Usage: !setrole <пользователь> <rпричина>");
+    return;
+  }
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Простиб но ты не можешь это сделать.");
   let pMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!pMember) return message.reply("Не найден пользователь.");
@@ -225,6 +229,10 @@ if(cmd === `${prefix}setrole`){
 
 if(cmd === `${prefix}remrole`){
 
+   if(args[0] == "help"){
+    message.reply("Usage: !remrole <пользователь> <rпричина>");
+    return;
+  }
   if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Ты не можешь это сделать.");
   let iMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
   if(!iMember) return message.reply("Не найден пользователь");
@@ -340,6 +348,10 @@ if(cmd === `${prefix}remrole`){
     let rUser = message.guild.member(message.mentions.users.first() || msd.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let reason = args.join(" ").slice(22);
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}report <пользователь> <rпричина>`);
+    return;
+  }
 
     let reportEmbed = new Discord.RichEmbed()
       .setDescription("Репорт")
@@ -358,6 +370,10 @@ if(cmd === `${prefix}remrole`){
   }
 
 if(cmd === `${prefix}prefix`){
+   if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}prefix <новый префикс> `);
+    return;
+  }
   if(!message.member.hasPermission("MANAGE_SERVER")) return message.reply("Нет нет нет...");
 
 
@@ -424,6 +440,10 @@ if(cmd === `${prefix}hello`){
 
 
   if(cmd === `${prefix}clear`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}clear <число>`);
+    return;
+  }
     let logchannel = message.guild.channels.find(`name`, "wumpuslog");
     if(!logchannel) return message.channel.send("Не найден wumpuslog канал.");
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
@@ -437,6 +457,10 @@ if(cmd === `${prefix}hello`){
 
    
 
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}ban <пользователь> <rпричина>`);
+    return;
+  }
     let reason = args.slice(1).join(' ')
     let user = message.mentions.users.first();
    
@@ -467,6 +491,10 @@ if(cmd === `${prefix}hello`){
   };
 
   if(cmd === `${prefix}kick`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}kick <пользователь> <rпричина>`);
+    return;
+  }
     
 
     let reason = args.slice(1).join(' ');
@@ -518,6 +546,10 @@ if(cmd === `${prefix}hello`){
   }*/
 
   if(cmd === `${prefix}unban`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}unban <пользовательзовательский ID> <причина>`);
+    return;
+  }
     let reason = args.slice(1).join(' ')
     let user = args[0];
     if(reason.length < 1) return message.reply("Укажите причину unban!");
@@ -556,6 +588,10 @@ if(cmd === `${prefix}avatar`){
 
 
   if(cmd === `${prefix}lockdown`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}lockdown <время>`);
+    return;
+  }
     if(!message.member.hasPermission("MANAGE_GUILD")) return errors.noPerms(message, "MANAGE_GUILD");
     if (!bot.lockit) bot.lockit = [];
     let time = args.join(' ');
@@ -656,6 +692,10 @@ if(message.guild.member(user).roles.has(Muterole.id)) {
   }
 
 if(cmd === `${prefix}8ball`){
+   if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}8ball <вопрос>`);
+    return;
+  }
   if(!args[2]) return message.reply("Скажите полный вопрос!");
       let replies = ["Да.", "Нет.","Возможно.", " Я не знаю.", "Скажите позже."];
       let result = Math.floor((Math.random() * replies.length));
@@ -725,6 +765,10 @@ if(cmd === `${prefix}8ball`){
 
 
   if(cmd === `${prefix}warnlevel`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}warnlevel <пользователь>`);
+    return;
+  }
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You can't do that.");
     let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
     if(!wUser) return message.reply("Couldn't find them yo");
@@ -742,6 +786,10 @@ if(cmd === `${prefix}8ball`){
  
 
   if(cmd === `${prefix}mute`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}mute <пользователь> <причина>`);
+    return;
+  }
 
     let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
@@ -775,6 +823,10 @@ if(cmd === `${prefix}8ball`){
   }
   }
   if(cmd === `${prefix}unmute`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}report <пользователь> <причина>`);
+    return;
+  }
     let user = message.mentions.users.first();
    
     let iMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);

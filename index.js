@@ -273,7 +273,7 @@ if(cmd === `${prefix}remrole`){
     .addField("`Bot Info` - Работает", `${prefix}botinfo`)
     .addField("`8b` - Работает", `${prefix}8b`)
     .addField("`!say` - Работает", `${prefix}say`)
-    .addField("`Docs` - Работает", `${prefix)docs`)
+    .addField("`Docs` - Работает", `${prefix}docs`)
     .addField("`Update` - Работает", `${prefix}update`)
     .addField("`Support` - Работает", `${prefix}support`)
     .addField("        ` Автор`: Famas_4sh", `Поддержка - напишите *${prefix}support*`);
@@ -326,7 +326,7 @@ if(cmd === `${prefix}remrole`){
     .addField("`Bot Info` - Работает", `${prefix}botinfo`)
     .addField("`8b` - Работает", `${prefix}8b`)
     .addField("`!say` - Работает", `${prefix}say`)
-
+   .addField("`Docs` - Работает", `${prefix}docs`)
     .addField("`Update` - Работает", `${prefix}update`)
     .addField("`Support` - Работает", `${prefix}support`)
     .addField("        ` Автор`: Famas_4sh", `Поддержка - напишите *${prefix}support*`);

@@ -183,6 +183,7 @@ if(cmd === `${prefix}scount`){
 
 
 if(cmd === `invite`){
+   message.reply("https://discordapp.com/oauth2/authorize?client_id=505018380839944192&scope=bot&permissions=2146958847");
  
   try {
     let link = await bot.generateInvite(["ADMINISTRATOR"]);

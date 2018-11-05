@@ -270,6 +270,11 @@ if(cmd === `${prefix}remrole`){
   }
 
    if(cmd === `help`){
+      
+      if(args[0] == "commands"){
+    message.reply("Prefserver - узнать префикс сервера, mod - помощь модераторам, hello - пусть бот скажет вам привет, server info - узнать информацию про сервер, bot info - информация про бота, say - сказать что-то, docs - глобальная помощь по боту, support - ссылка на техю поддержку.");
+    return;
+  }
 
     let helpEmbed = new Discord.RichEmbed()
     .setColor('RANDOM')
@@ -323,6 +328,10 @@ if(cmd === `${prefix}remrole`){
 
 
   if(cmd === `h`){
+     if(args[0] == "commands"){
+    message.reply("Prefserver - узнать префикс сервера, mod - помощь модераторам, hello - пусть бот скажет вам привет, server info - узнать информацию про сервер, bot info - информация про бота, say - сказать что-то, docs - глобальная помощь по боту, support - ссылка на техю поддержку.");
+    return;
+  }
 
     let helpEmbed = new Discord.RichEmbed()
     .setColor('RANDOM')
@@ -332,7 +341,7 @@ if(cmd === `${prefix}remrole`){
   .addField("`Hello` - Работает", `${prefix}hello`)
     .addField("`Server info` - Работает", `${prefix}serverinfo`)
     .addField("`Bot Info` - Работает", `${prefix}botinfo`)
-    .addField("`8b` - Работает", `${prefix}8b`)
+    .addField("`8ball` - Работает", `${prefix}8ball`)
     .addField("`!say` - Работает", `${prefix}say`)
    .addField("`Docs` - Работает", `${prefix}docs`)
     .addField("`Update` - Работает", `${prefix}update`)
@@ -738,13 +747,7 @@ if(cmd === `${prefix}8ball`){
     if(!wUser) return message.reply("Укажите пользователя");
     if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Это уже слишком");
     let reason = args.join(" ").slice(22);
-     if(!warns[wUser.id]) warns[wUser.id] = {
-      warns: 0
-    };
-     warns[wUser.id].warns++;
-     fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-      if (err) console.log(err)
-    });
+   
      let warnEmbed = new Discord.RichEmbed()
     .setDescription("Warns")
     .setAuthor(message.author.username)

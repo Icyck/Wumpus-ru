@@ -737,7 +737,7 @@ if(cmd === `${prefix}8ball`){
 
   
 
-  if(cmd === `${prefix}warn`){
+  if(cmd === `${prefix}w`){
     message.delete();
     let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
@@ -752,7 +752,9 @@ if(cmd === `${prefix}8ball`){
   .addField('Пользователь:', `${user.username}#${user.discriminator}`)
   .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`)
   .addField('Причина', reason);
-  return bot.channels.get(modlog.id).sendEmbed(embed);
+     message.reply(`Пользователя предупредили! Причина: ${reason}`)
+     user.send("Вас предупредили! Причина : ${reason}")
+  return modlog.send(embed);
   }
 
 
@@ -780,6 +782,44 @@ if(cmd === `${prefix}8ball`){
  
 
   if(cmd === `${prefix}mute`){
+     if(args[0] == "help"){
+    message.reply(`Использование: ${prefix}mute <пользователь> <причина>`);
+    return;
+  }
+
+    let reason = args.slice(1).join(' ');
+  let user = message.mentions.users.first();
+  
+  
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+  
+  let muteRole = bot.guilds.get(message.guild.id).roles.find('name', 'muted')
+  let incidentchannel = message.guild.channels.find(`name`, "incidents");
+  if(!incidentchannel) return message.channel.send("Не найден incidents канал.");
+  if (!muteRole) return message.reply('Я не нашел muted роль!').catch(console.error);
+  if (reason.length < 1) return message.reply('Укажите причину заглушки пользователя.').catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('Вы должны упомянуть пользователя для заглушки.').catch(console.error);
+  const embed = new Discord.RichEmbed()
+    .setColor(0x00AE86)
+    .setTimestamp()
+    .addField('Функция:', 'Mute')
+    .addField('Пользователь:', `${user.username}#${user.discriminator}`)
+    .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`);
+
+  if (!message.guild.member(bot.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('I do not have the correct permissions.').catch(console.error);
+
+  if (message.guild.member(user).roles.has(muteRole.id)) {
+    message.guild.member(user).removeRole(muteRole).then(() => {
+      bot.channels.get(incidentchannel.id).sendEmbed(embed).catch(console.error);
+    });
+  } else {
+    message.guild.member(user).addRole(muteRole).then(() => {
+      bot.channels.get(incidentchannel.id).sendEmbed(embed).catch(console.error);
+    });
+  }
+  }
+    if(cmd === `${prefix}devmute`){
+       message.delete();
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}mute <пользователь> <причина>`);
     return;

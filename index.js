@@ -829,14 +829,14 @@ if(cmd === `${prefix}8ball`){
   let user = message.mentions.users.first();
   
   
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+
   
   let muteRole = bot.guilds.get(message.guild.id).roles.find('name', 'muted')
   let incidentchannel = message.guild.channels.find(`name`, "incidents");
   if(!incidentchannel) return message.channel.send("Не найден incidents канал.");
   if (!muteRole) return message.reply('Я не нашел muted роль!').catch(console.error);
   if (reason.length < 1) return message.reply('Укажите причину заглушки пользователя.').catch(console.error);
-  if (message.mentions.users.size < 1) return message.reply('Вы должны упомянуть пользователя для заглушки.').catch(console.error);
+ 
   const embed = new Discord.RichEmbed()
     .setColor(0x00AE86)
     .setTimestamp()
@@ -856,7 +856,8 @@ if(cmd === `${prefix}8ball`){
     });
   }
   }
-  if(cmd === `${prefix}unmute`){
+  if(cmd === `${prefix}devunmute`){
+     message.delete();
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}report <пользователь> <причина>`);
     return;
@@ -886,8 +887,8 @@ if(cmd === `${prefix}8ball`){
     .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`);
 
     
-    incidentchannel.send(embed);
-    message.reply("***С пользователя снята заглушка!***")
+    //incidentchannel.send(embed);
+   user.send("***С пользователя снята заглушка!***")
   }
 
   

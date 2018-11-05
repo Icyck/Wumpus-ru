@@ -736,32 +736,20 @@ if(cmd === `${prefix}8ball`){
 
   if(cmd === `${prefix}warn`){
     message.delete();
-    if(!message.member.hasPermission("WARN_MEMBERS")) return errors.noPerms(message, "WARN_MEMBERS");
-    if(args[0] == "help"){
-      message.reply("Usage: !warn <user> <reason>");
-      return;
-    }
-    let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
-   // if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("No can do pal!");
-    let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-    if(!wUser) return message.reply("Укажите пользователя");
-    if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("Это уже слишком");
-    let reason = args.join(" ").slice(22);
-   
-     let warnEmbed = new Discord.RichEmbed()
-    .setDescription("Warns")
-    .setAuthor(message.author.username)
-    .setColor("#fc6400")
-    .addField("Нарушитель", `<@${wUser.id}>`)
-    .addField("Нарушениние было замеченно в", message.channel)
-   
-    .addField("Причина", reason);
-     let warnchannel = message.guild.channels.find(`name`, "incidents");
-    if(!warnchannel) return message.reply("Не найден incidents канал");
-     warnchannel.send(warnEmbed);
-     message.reply(`***Пользователя предупредили, причина: ${reason}***`);
-     wUser.send(`Вас предепредили в  *${message.guild.name}* причина : ${reason}`);
-
+    let reason = args.slice(1).join(' ');
+  let user = message.mentions.users.first();
+  let modlog = client.channels.find('name', 'incidents');
+  if (!modlog) return message.reply('Не найден  incidents канал');
+  if (reason.length < 1) return message.reply('Укажите причину предупреждения.');
+  if (message.mentions.users.size < 1) return message.reply('У вас нет прав для предупреждения').catch(console.error);
+  const embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setTimestamp()
+  .addField('Action:', 'Warning')
+  .addField('Пользователь:', `${user.username}#${user.discriminator}`)
+  .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`)
+  .addField('Причина', reason);
+  return client.channels.get(modlog.id).sendEmbed(embed);
   }
 
 

@@ -738,7 +738,7 @@ if(cmd === `${prefix}8ball`){
     message.delete();
     let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'incidents');
+  let modlog = bot.channels.find('name', 'incidents');
   if (!modlog) return message.reply('Не найден  incidents канал');
   if (reason.length < 1) return message.reply('Укажите причину предупреждения.');
   if (message.mentions.users.size < 1) return message.reply('У вас нет прав для предупреждения').catch(console.error);
@@ -749,7 +749,7 @@ if(cmd === `${prefix}8ball`){
   .addField('Пользователь:', `${user.username}#${user.discriminator}`)
   .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`)
   .addField('Причина', reason);
-  return client.channels.get(modlog.id).sendEmbed(embed);
+  return bot.channels.get(modlog.id).sendEmbed(embed);
   }
 
 

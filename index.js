@@ -303,7 +303,10 @@ if(cmd === `${prefix}remrole`){
    
 
   if(cmd === `mod`){
-
+ if(args[0] == "commands"){
+    message.reply("Mute - заглушить пользователя, Unmute - снять заглушку, Server id - индефикатор сервера, Report - отчёт о пользователе, User id - индефикатор пользователя (id), warn - предупреждение, warn level - в разработке, Kick - изгнать пользователя, ban - забанить пользователя, clear - очистить сообщения, setrole- добавить роль, remrole- убрать роль, unban- разбанить пользователя.");
+    return; 
+  }
     let helpEmbed = new Discord.RichEmbed()
     .setTitle("HELP MOD")
     .setTimestamp()

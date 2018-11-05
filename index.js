@@ -471,7 +471,7 @@ if(cmd === `${prefix}hello`){
   }
     let logchannel = message.guild.channels.find(`name`, "wumpuslog");
     if(!logchannel) return message.channel.send("Не найден wumpuslog канал.");
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+    
     if(!args[0]) return message.channel.send("oof.");
     message.channel.bulkDelete(args[0]).then(() => {
         logchannel.send(`Удалено ${args[0]} сообщений.`).then(msg => message.delete(5000))

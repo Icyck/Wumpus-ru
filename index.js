@@ -479,7 +479,7 @@ if(cmd === `${prefix}hello`){
   };
 
   if(cmd === `${prefix}ban`){
-
+message.delete();
    
 
      if(args[0] == "help"){
@@ -506,7 +506,9 @@ if(cmd === `${prefix}hello`){
     .setTimestamp()
     .addField("Action", "Бан")
     .addField("Пользователь:", `${user.username}#${message.author.discriminator}`)
-    .addField("Модератор", `${message.author.username}#${message.author.discriminator}`);
+    .addField("Модератор", `${message.author.username}#${message.author.discriminator}`)
+    .addField('Причина:', reason)
+    .addField('Id', `${user.id}`);
 
     message.reply(`Пользователь ${user.username} забанен <:BanHammer:498911349061976074>`)
   user.send(`Вас забанили на сервере ${message.guild.name}, причина: ${reason}`)
@@ -516,6 +518,7 @@ if(cmd === `${prefix}hello`){
   };
 
   if(cmd === `${prefix}kick`){
+     message.delete();
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}kick <пользователь> <rпричина>`);
     return;
@@ -571,11 +574,12 @@ if(cmd === `${prefix}hello`){
   }*/
 
   if(cmd === `${prefix}unban`){
+     message.delete();
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}unban <пользовательзовательский ID> <причина>`);
     return;
   }
-    let reason = args.slice(1).join(' ')
+    
     let user = args[0];
     if(reason.length < 1) return message.reply("Укажите причину unban!");
     if(!user) return message.reply('Укажите id пользователя!').catch(console.error);
@@ -589,7 +593,9 @@ if(cmd === `${prefix}hello`){
     .setTimestamp()
     .addField("Action", "Unban")
     .addField("Пользователь:", `${user.username}#${message.author.discriminator}`)
-    .addField("Модератор", `${message.author.username}#${message.author.discriminator}`);
+    .addField("Модератор", `${message.author.username}#${message.author.discriminator}`)
+   
+    .addField(`${user.id}`);
 
     message.reply(`С пользователя сняли бан!`);
     user.send(`Вас разбанили на сервере ${message.guild.name}, Причина: ${reason}`);
@@ -613,6 +619,7 @@ if(cmd === `${prefix}avatar`){
 
 
   if(cmd === `${prefix}lockdown`){
+     message.delete();
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}lockdown <время>`);
     return;
@@ -766,7 +773,7 @@ if(cmd === `${prefix}8ball`){
   .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`)
   .addField('Причина', reason);
      message.reply(`Пользователя предупредили! Причина: ${reason}`)
-     user.send("Вас предупредили! Причина : ${reason}")
+     user.send(`Вас предупредили! Причина : ${reason}`)
   return modlog.send(embed);
   }
 
@@ -795,6 +802,7 @@ if(cmd === `${prefix}8ball`){
  
 
   if(cmd === `${prefix}mute`){
+     message.delete();
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}mute <пользователь> <причина>`);
     return;
@@ -817,7 +825,8 @@ if(cmd === `${prefix}8ball`){
     .setTimestamp()
     .addField('Функция:', 'Mute')
     .addField('Пользователь:', `${user.username}#${user.discriminator}`)
-    .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`);
+    .addField('Модератор:', `${message.author.username}#${message.author.discriminator}`)
+     .addField('Причина:', reason);
 
   if (!message.guild.member(bot.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('I do not have the correct permissions.').catch(console.error);
 
@@ -838,7 +847,7 @@ if(cmd === `${prefix}8ball`){
     return;
   }
 
-    let reason = args.slice(1).join(' ');
+ 
   let user = message.mentions.users.first();
   
   

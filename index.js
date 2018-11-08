@@ -479,7 +479,7 @@ if(cmd === `${prefix}hello`){
   };
 
   if(cmd === `${prefix}ban`){
-message.delete();
+
    
 
      if(args[0] == "help"){
@@ -518,7 +518,7 @@ message.delete();
   };
 
   if(cmd === `${prefix}kick`){
-     message.delete();
+ 
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}kick <пользователь> <rпричина>`);
     return;
@@ -574,7 +574,7 @@ message.delete();
   }*/
 
   if(cmd === `${prefix}unban`){
-     message.delete();
+  
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}unban <пользовательзовательский ID> <причина>`);
     return;
@@ -758,8 +758,8 @@ if(cmd === `${prefix}8ball`){
   
 
   if(cmd === `${prefix}w`){
-    message.delete();
-    let reason = args.slice(1).join(' ');
+  
+  let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let modlog = message.channels.find('name', 'incidents');
   if (!modlog) return message.reply('Не найден  incidents канал');
@@ -802,7 +802,7 @@ if(cmd === `${prefix}8ball`){
  
 
   if(cmd === `${prefix}mute`){
-     message.delete();
+     
      if(args[0] == "help"){
     message.reply(`Использование: ${prefix}mute <пользователь> <причина>`);
     return;

@@ -761,7 +761,7 @@ if(cmd === `${prefix}8ball`){
     message.delete();
     let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let modlog = bot.channels.find('name', 'incidents');
+  let modlog = message.channels.find('name', 'incidents');
   if (!modlog) return message.reply('Не найден  incidents канал');
   if (reason.length < 1) return message.reply('Укажите причину предупреждения.');
   if (message.mentions.users.size < 1) return message.reply('У вас нет прав для предупреждения').catch(console.error);

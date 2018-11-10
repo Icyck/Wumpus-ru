@@ -2,7 +2,7 @@ const botconfig = require("./botconfig.json");
 const token = "NDg5MTIyODA4NjUyMTAzNjgw.DshCZQ.oC0AAdZ1qAINGbebmk5YWgS93lQ";
 const Discord = require("discord.js");
 const errors = require("./utils/errors.js")
-
+let code = JSON.parse(fs.readFileSync("./code.json", "utf8"));
 const fs = require("fs");
 const ms = require("ms");
 
@@ -328,18 +328,14 @@ if(cmd === `${prefix}remrole`){
 
     return message.channel.send(helpEmbed);
   };
-if(cmd === `bc`){
-  if(args[0] == "set"){
-    //message.reply("Mute - заглушить пользователя, Unmute - снять заглушку, Server id - индефикатор сервера, Report - отчёт о пользователе, User id - индефикатор пользователя (id), warn - предупреждение, warn level - в разработке, Kick - изгнать пользователя, ban - забанить пользователя, clear - очистить сообщения, setrole- добавить роль, remrole- убрать роль, unban- разбанить пользователя.");
-    let code = message.slice(5)
-    message.reply("Ok")
+if(cmd === `${prefix}setcode`){
+   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You can't do that.");
+    let code = message.slice(8)
     
-    return; 
-  }
-  const embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-  .addField(`${code}`);
-  message.send(embed)
+    messsage.reply(code)
+}
+   if(cmd === `${prefix}code){
+message.reply(code)
 }
 
   if(cmd === `h`){

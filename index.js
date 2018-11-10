@@ -2,7 +2,7 @@ const botconfig = require("./botconfig.json");
 const token = "NDg5MTIyODA4NjUyMTAzNjgw.DshCZQ.oC0AAdZ1qAINGbebmk5YWgS93lQ";
 const Discord = require("discord.js");
 const errors = require("./utils/errors.js")
-let code = JSON.parse(fs.readFileSync("./code.json", "utf8"));
+
 const fs = require("fs");
 const ms = require("ms");
 

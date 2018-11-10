@@ -334,7 +334,7 @@ if(cmd === `${prefix}setcode`){
     
     messsage.reply(code)
 }
-   if(cmd === `${prefix}code){
+   if(cmd === `${prefix}code`){
 message.reply(code)
 }
 

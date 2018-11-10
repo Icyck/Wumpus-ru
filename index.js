@@ -1,5 +1,5 @@
 const botconfig = require("./botconfig.json");
-const token = process.env.token;
+const token = "NDg5MTIyODA4NjUyMTAzNjgw.DshCZQ.oC0AAdZ1qAINGbebmk5YWgS93lQ";
 const Discord = require("discord.js");
 const errors = require("./utils/errors.js")
 
@@ -328,7 +328,19 @@ if(cmd === `${prefix}remrole`){
 
     return message.channel.send(helpEmbed);
   };
-
+if(cmd === `bc`){
+  if(args[0] == "set"){
+    //message.reply("Mute - заглушить пользователя, Unmute - снять заглушку, Server id - индефикатор сервера, Report - отчёт о пользователе, User id - индефикатор пользователя (id), warn - предупреждение, warn level - в разработке, Kick - изгнать пользователя, ban - забанить пользователя, clear - очистить сообщения, setrole- добавить роль, remrole- убрать роль, unban- разбанить пользователя.");
+    let code = message.slice(5)
+    message.reply("Ok")
+    
+    return; 
+  }
+  const embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .addField(`${code}`);
+  message.send(embed)
+}
 
   if(cmd === `h`){
      if(args[0] == "commands"){

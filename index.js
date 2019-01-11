@@ -722,6 +722,7 @@ if(message.guild.member(user).roles.has(Muterole.id)) {
   //if(message.member.hasPermission("  ")) return message.reply("No");
        message.delete().catch();
   message.reply("Бот обновлен!)
+                }
 
   if(cmd === `${prefix}userid`){
     let kiUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));

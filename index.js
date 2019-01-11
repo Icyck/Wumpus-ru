@@ -712,12 +712,16 @@ if(message.guild.member(user).roles.has(Muterole.id)) {
 
 }*/
 
-  if(cmd === `${prefix}say`){
+  if(cmd === `${prefix}devsay`){
   //if(message.member.hasPermission("  ")) return message.reply("No");
     let botmessage = args.join(" ");
     message.delete().catch();
     message.channel.send(botmessage);
 }
+   if(cmd === `${prefix}up`){
+  //if(message.member.hasPermission("  ")) return message.reply("No");
+       message.delete().catch();
+  message.reply("Бот обновлен!)
 
   if(cmd === `${prefix}userid`){
     let kiUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));

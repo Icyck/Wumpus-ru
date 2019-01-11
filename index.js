@@ -721,7 +721,7 @@ if(message.guild.member(user).roles.has(Muterole.id)) {
    if(cmd === `${prefix}up`){
   //if(message.member.hasPermission("  ")) return message.reply("No");
        message.delete().catch();
-  message.reply("Бот обновлен!)
+  message.reply("Бот обновлен!")
                 }
 
   if(cmd === `${prefix}userid`){
